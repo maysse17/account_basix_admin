@@ -6,7 +6,7 @@
 
             <card header-text="Vue Progress Bar">
                 <div class="card-body">
-                    <vue-progressbar></vue-progressbar>
+                    <vue-progress-bar></vue-progress-bar>
                 </div>
             </card>
             <card header-text="Background">
@@ -120,14 +120,14 @@
 
 <script>
 import BootstrapProgressBar from './progressbar/BootstrapProgressBar.vue'
-import VueProgress from './progressbar/VueProgress.vue'
+import VueProgressBar from './progressbar/VueProgress.vue'
 
 //import Buttons from '../components/Buttons.vue';
 
   export default {
     components: {
       BootstrapProgressBar,
-      VueProgressBar: VueProgress
+      VueProgressBar
     }
 }
 </script>
