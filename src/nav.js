@@ -49,6 +49,21 @@ export default {
           icon: 'fa fa-exclamation-triangle'
         },
         {
+          name: 'Progress Bars',
+          url: '/components/progressbars',
+          icon: 'fa fa-spinner'
+        },
+        {
+          name: 'Modals',
+          url: '/components/modals',
+          icon: 'fa fa-fire'
+        },
+        {
+          name: 'Switches',
+          url: '/components/switches',
+          icon: 'fa fa-book'
+        },
+        {
           name: 'Grids',
           url: '/components/grids',
           icon: 'fa fa-th'

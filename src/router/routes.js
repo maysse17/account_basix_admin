@@ -8,8 +8,14 @@ const Buttons = resolve => { require.ensure(['../components/Buttons.vue'], ()=>{
 const Badges = resolve => { require.ensure(['../components/Badges.vue'], ()=>{ resolve(require('../components/Badges.vue')); }); };
 const Cards = resolve => { require.ensure(['../components/Cards.vue'], ()=>{ resolve(require('../components/Cards.vue')); }); };
 const Alerts = resolve => { require.ensure(['../components/Alerts.vue'], ()=>{ resolve(require('../components/Alerts.vue')); }); };
+const ProgressBars = resolve => { require.ensure(['../components/ProgressBars.vue'], ()=>{ resolve(require('../components/ProgressBars.vue')); }); };
+const Modals = resolve => { require.ensure(['../components/Modals.vue'], ()=>{ resolve(require('../components/Modals.vue')); }); };
+const Switches = resolve => { require.ensure(['../views/Switches.vue'], ()=>{ resolve(require('../views/Switches.vue')); }); };
+
 
 const BasicForms = resolve => { require.ensure(['../components/forms/BasicForms.vue'], ()=>{ resolve(require('../components/forms/BasicForms.vue')); }); };
+const AdvancedForms = resolve => { require.ensure(['../components/forms/AdvancedForms.vue'], ()=>{ resolve(require('../components/forms/AdvancedForms.vue')); }); };
+const FormWizard = resolve => { require.ensure(['../components/forms/FormWizard.vue'], ()=>{ resolve(require('../components/forms/FormWizard.vue')); }); };
 const Grids = resolve => { require.ensure(['../components/Grids.vue'], ()=>{ resolve(require('../components/Grids.vue')); }); };
 const Widgets = resolve => { require.ensure(['../components/Widgets.vue'], ()=>{ resolve(require('../components/Widgets.vue')); }); };
 const Tables = resolve => { require.ensure(['../components/tables/Tables.vue'], ()=>{ resolve(require('../components/tables/Tables.vue')); }); };
@@ -57,8 +63,13 @@ export const routes = [
     { path : '/components/buttons', name: 'buttons', component: Buttons },
     { path : '/components/badges', name: 'badges', component: Badges },
     { path : '/components/cards', name: 'cards', component: Cards },
+    { path : '/components/modals', name: 'modals', component: Modals },
     { path : '/components/alerts', name: 'alerts', component: Alerts },
+    { path : '/components/progressbars', name: 'progressbars', component: ProgressBars },
+    { path : '/components/switches', name: 'switches', component: Switches },
     { path : '/components/basic-form', name: 'basic-form', component: BasicForms },
+    { path : '/components/advanced-form', name: 'advanced-form', component: AdvancedForms },
+    { path : '/components/wizard-form', name: 'wizard-form', component: FormWizard },
     { path : '/components/grids', name: 'grids', component: Grids },
     { path : '/components/widgets', name: 'widgets', component: Widgets },
     { path : '/components/tables', name: 'tables', component: Tables },
