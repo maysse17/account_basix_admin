@@ -61,5 +61,6 @@ node_modules/
 
 # Collected staticfiles
 */staticfiles/
+*/static/
 
 .cache/

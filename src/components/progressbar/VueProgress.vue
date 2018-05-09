@@ -49,7 +49,7 @@
     },
     data () {
       return {
-        title: 'ProgressBar.js',
+        title: 'toto',
         subtitle: 'As a Vue Component',
         lineBasicOptions: OPTIONS.LINE_BASIC,
         linePercentOptions: OPTIONS.LINE_PERCENT,

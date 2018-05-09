@@ -49,9 +49,6 @@
 
 <style lang="scss">
   @import "./assets/bootstrap/bootstrap";
-
-  $fa-font-path: "../node_modules/font-awesome/fonts" !default;
-  @import "~font-awesome/scss/font-awesome";
   @import "./assets/style";
 </style>
 

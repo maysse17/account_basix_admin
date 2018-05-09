@@ -88,6 +88,20 @@ export default {
                   variant: 'warning',
                   text: 'NEW'
                 }
+            },
+            {
+                name: 'Advanced Form',
+                url: '/components/advanced-form',
+                icon: 'fa fa-pencil-square-o',
+            },
+            {
+                name: 'Form Wizard',
+                url: '/components/wizard-form',
+                icon: 'fa fa-pencil-square-o',
+                badge: {
+                  variant: 'danger',
+                  text: 'NEW'
+                }
             }
       ]
     },
