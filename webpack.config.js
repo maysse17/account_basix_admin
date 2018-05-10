@@ -108,7 +108,11 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         noInfo: false,
-        clientLogLevel: "info"
+        clientLogLevel: "info",
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers': 'X-Requested-With'
+        }
     },
     performance: {
         hints: false
@@ -151,32 +155,4 @@ if (process.env.NODE_ENV === 'production') {
     ])
 }
 
-// ==================== DEVELOPMENT SETTINGS ====================
-// if (process.env.NODE_ENV === 'development') {
-//     module.exports.devtool = '#eval-source-map',
-//     module.exports.output = {
-//         path: path.resolve(__dirname, 'dist'),
-//         filename: 'bundle.js'
-//     }
-//     module.exports.plugins.push(
-//         new webpack.DefinePlugin({'process.env': {NODE_ENV: '"development"'}}),
-//         new webpack.NoEmitOnErrorsPlugin(),
-//         new webpack.HotModuleReplacementPlugin(),
-//         new webpack.LoaderOptionsPlugin({vue: {loader: {js: 'babel-loader'}}})
-//     ),
-//     module.exports.devServer = {
-//         historyApiFallback: true,
-//         noInfo: false,
-//         inline: true,
-//         host: '0.0.0.0',
-//         port: 3000,
-//         hot: true,
-//         clientLogLevel: "info",
-//         headers: {
-//             'Access-Control-Allow-Origin': '*',
-//             'Access-Control-Allow-Headers': 'X-Requested-With'
-//         }
-//     },
-//     module.exports.performance = {hints: false},
-//     module.exports.watchOptions = {poll: 1000}
-// }
+

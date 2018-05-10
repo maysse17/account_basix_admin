@@ -2,12 +2,8 @@
   <div class="auth-layout">
     <div class="nav hidden-lg-up"><router-link class="basix-home" :to="{path: '/'}"></router-link></div>
     <div class="main row">
-      <div class="auth-content col-md-6">
+      <div class="auth-content col-md-12">
         <router-view></router-view>
-      </div>
-      <div class="auth-wallpaper col-md-6 hidden-md-down">
-        <div class="oblique"></div>
-        <router-link class="basix-home" :to="{path: '/'}"><img src="../images/logo.png" alt="Logo"></router-link>
       </div>
     </div>
   </div>
