@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 '''
 import environ
 import os
+import datetime
 
 ROOT_DIR = environ.Path(__file__) - 3  # (account_management/config/settings/base.py - 3 = account_management/)
 APPS_DIR = ROOT_DIR.path('src')
@@ -32,7 +33,8 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'django_extensions'
+    'django_extensions',
+    'django_js_reverse',
 ]
 
 # Apps specific for this project go here.
@@ -219,7 +221,9 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.BasicAuthentication'
     ],
     'DEFAULT_PERMISSION_CLASSES': [
@@ -259,6 +263,13 @@ DJANGO_MAILGUN_API_PUB = env('DJANGO_MAILGUN_API_PUB', default=None)
 
 # Google Analytics
 GOOGLE_ANALYTICS = env('GOOGLE_ANALYTICS', default=None)
+
+# Json Web Token settings
+
+JWT_AUTH = {
+    'JWT_AUTH_HEADER_PREFIX': 'JWT_ACCOUNT',
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=300)
+}
 
 
 

@@ -17,10 +17,10 @@
 
             <div class="col-sm-3">
                 <div class="header-right">
-                      <form class="form-inline">
-                            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa fa-search"></i></button>
-                        </form>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa fa-search"></i></button>
+                    </form>
                 </div>
             </div>
 
@@ -31,34 +31,26 @@
                     </a>
 
                     <ul class="user-menu">
-
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                My Profile
+                        <router-link tag="li" :to="{name: 'Login'}" exact>
+                            <a class="" href="">
+                                <i class="fa fa-sign-in"></i>
+                                Login
                             </a>
-                        </li>
+                        </router-link>
 
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-user"></i>
-                                Notifications <span class="count">13</span>
+                        <router-link tag="li" :to="{name: 'Register'}" exact>
+                            <a class="" href="">
+                                <i class="fa fa-user-plus"></i>
+                                Sign Up
                             </a>
-                        </li>
+                        </router-link>
 
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-cog"></i>
-                                Settings
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-power-off"></i>
+                        <router-link tag="li" :to="{name: 'Logout'}" exact>
+                            <a class="" href="">
+                                <i class="fa fa-sign-out"></i>
                                 Logout
                             </a>
-                        </li>
+                        </router-link>
                     </ul>
                 </div>
             </div>

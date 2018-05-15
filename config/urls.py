@@ -1,17 +1,25 @@
 from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
+from django.urls import re_path
 from django.contrib import admin
+from django_js_reverse.views import urls_js
 from django.views.generic import TemplateView
-from django.contrib.auth.views import logout
+from rest_framework_jwt.views import obtain_jwt_token
+from rest_framework_jwt.views import refresh_jwt_token
+from rest_framework_jwt.views import verify_jwt_token
+from django.views.decorators.cache import cache_page
 
 from config.api import api
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(api.urls)),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^logout/$', logout, {'next_page': '/'}, name='logout'),
+    url(r'^auth/', include(('account.urls', 'account'), namespace='account')),
+    re_path(r'^jsreverse/$', cache_page(3600)(urls_js), name='js_reverse'),
+    url(r'^auth-jwt/', obtain_jwt_token),
+    url(r'^auth-jwt-refresh/', refresh_jwt_token),
+    url(r'^auth-jwt-verify/', verify_jwt_token),
 ]
 
 if settings.DEBUG:

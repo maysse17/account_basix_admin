@@ -21,4 +21,5 @@ raven
 celery
 ipython
 ptpython
+djangorestframework-jwt
 

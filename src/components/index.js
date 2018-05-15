@@ -6,6 +6,7 @@ import Alerts from './Alerts.vue'
 import Buttons from './Buttons.vue'
 import Footer from './Footer.vue'
 import Header from './Header.vue'
+import Header2 from './Header2.vue'
 import Sidebar from './Sidebar.vue'
 import Badges from './Badges.vue'
 import Cards from './Cards.vue'
@@ -43,6 +44,7 @@ export {
   Buttons,
   Footer,
   Header,
+  Header2,
   Sidebar,
   SidebarCollapse,
   Badges,

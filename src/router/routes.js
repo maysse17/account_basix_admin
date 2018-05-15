@@ -148,11 +148,16 @@ export const routes = [
             {
                 path: '/auth/login',
                 component: Login,
-                name: 'login',
+                name: 'Login',
                 meta: {
                     default: false,
                     title: 'Login'
                 }
+            },
+            {
+                path: '',
+                component: Dashboard,
+                name: 'Logout'
             },
             {
                 path: '/auth/register',

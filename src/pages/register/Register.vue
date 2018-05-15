@@ -151,9 +151,19 @@
         },
         methods: {
             submitRegister: function () {
-                // let url = Urls["board:boards_list"]()
-                HTTP.post('logout').then((response) => {
-                    console.log('get response')
+                let url = Urls["account:signup"]()
+                let data = {
+                    username: this.username,
+                    first_name: this.first_name,
+                    last_name: this.last_name,
+                    email: this.email,
+                    password1: this.password1,
+                    password2: this.password2
+                }
+                HTTP.post(url, data).then((response) => {
+                    console.log(response)
+                }).catch((error) => {
+                    console.log(error)
                 });
             }
         },
