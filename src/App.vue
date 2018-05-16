@@ -22,6 +22,7 @@
     import AuthLayout from './layouts/AuthLayout.vue';
 
     export default {
+        name: 'App',
         data (){
             return{
                 nav: nav.items

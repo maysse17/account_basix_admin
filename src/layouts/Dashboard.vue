@@ -1,9 +1,12 @@
 <template>
     <div class="dashboard-content">
-            <info></info>
-            <social-networks></social-networks>
-            <traffic-chart></traffic-chart>
-
+        <basix-alert type="success" :withCloseBtn="true" class="mt-4">
+            <span class="badge badge-pill badge-success">Success</span>
+            You successfully read this important alert message.
+        </basix-alert>
+        <info></info>
+        <social-networks></social-networks>
+        <traffic-chart></traffic-chart>
     </div>
 </template>
 
@@ -14,9 +17,9 @@
 
     export default {
         components: {
-                Info,
-                SocialNetworks: Socials,
-                TrafficChart: Traffic
+            Info,
+            SocialNetworks: Socials,
+            TrafficChart: Traffic
         }
     }
 </script>

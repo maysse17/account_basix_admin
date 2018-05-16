@@ -1,8 +1,8 @@
 <template>
   <transition name="fade">
     <div class='basix-alert alert' :class="alertClass" v-if="!hidden">
-        <slot></slot>
         <i class="fa fa-close alert-close float-right align-top" v-if="withCloseBtn" @click="hide()" ></i>
+        <slot></slot>
     </div>
   </transition>
 </template>
