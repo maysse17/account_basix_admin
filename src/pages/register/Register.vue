@@ -171,11 +171,12 @@
                     password: this.password1
                 }
                 let self = this
+                const { username, password } = data
                 HTTP.post(url, data).then((response) => {
-                    console.log(response)
+                    console.log('account created')
+                    this.$store.dispatch('obtainToken', { username, password })
                 }).catch((error) => {
-                    console.log(error.response.data)
-                    self.errors = error.response.data
+                    console.log(error)
                 });
             }
         },

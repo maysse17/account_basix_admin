@@ -43,15 +43,43 @@ const Register = resolve => { require.ensure(['../pages/register/Register.vue'],
 const Page404 = resolve => { require.ensure(['../pages/Page404.vue'], ()=>{ resolve(require('../pages/Page404.vue')); }); };
 const Page500 = resolve => { require.ensure(['../pages/Page500.vue'], ()=>{ resolve(require('../pages/Page500.vue')); }); };
 
+
+import store from '../store'
+
+const isNotAutenticated = (to, from, next) => {
+    if(!store.getters.isAuthenticated) {
+        next()
+        return
+    }
+    next('/')
+}
+
+const isAutenticated = (to, from, next) => {
+    if(store.getters.isAuthenticated) {
+        next()
+        return
+    }
+    next('/auth/login')
+}
+
+
 export const routes = [
     {
         path : '',
         name: 'home',
-        component: Dashboard
+        component: Dashboard,
+        beforeEnter: isAutenticated
     },
     {
         path: '/auth/register',
         component: Register,
-        name: 'Register'
+        name: 'Register',
+        beforeEnter: isNotAutenticated
+    },
+    {
+        path: '/auth/login',
+        component: Login,
+        name: 'Login',
+        beforeEnter: isNotAutenticated
     },
 ];

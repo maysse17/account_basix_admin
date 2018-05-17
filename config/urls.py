@@ -17,9 +17,9 @@ urlpatterns = [
     url(r'^api/', include(api.urls)),
     url(r'^auth/', include(('account.urls', 'account'), namespace='account')),
     re_path(r'^jsreverse/$', cache_page(3600)(urls_js), name='js_reverse'),
-    url(r'^auth-jwt/', obtain_jwt_token),
-    url(r'^auth-jwt-refresh/', refresh_jwt_token),
-    url(r'^auth-jwt-verify/', verify_jwt_token),
+    url(r'^auth-jwt/', obtain_jwt_token, name='jwt_obtain_token'),
+    url(r'^auth-jwt-refresh/', refresh_jwt_token, name='jwt_refresh_token'),
+    url(r'^auth-jwt-verify/', verify_jwt_token, name='jwt_verify_token'),
 ]
 
 if settings.DEBUG:
