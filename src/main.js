@@ -29,7 +29,7 @@ const router = new VueRouter({
 
 const axiosConfig = {
     baseUrl: 'http://127.0.0.1:8000/',
-	timeout: 3000,
+    timeout: 3000,
     headers: {
         'X-Requested-With': 'XMLHttpRequest'
     }
@@ -38,6 +38,11 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 export const HTTP = axios.create(axiosConfig);
+
+const token = localStorage.getItem('user-token')
+if (token) {
+    axios.defaults.headers.common['Authorization'] = token
+}
 
 new Vue({
     el: '#app',

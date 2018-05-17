@@ -45,12 +45,12 @@
                             </a>
                         </router-link>
 
-                        <router-link tag="li" :to="{name: 'Logout'}" exact>
-                            <a class="" href="">
+                        <li>
+                            <a class="" href="#" @click.prevent="logout()">
                                 <i class="fa fa-sign-out"></i>
                                 Logout
                             </a>
-                        </router-link>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -62,6 +62,15 @@
 
 
 <script>
+
+    export default {
+        methods: {
+            logout: function (e) {
+                console.log('logout called')
+                this.$store.dispatch('removeToken')
+            }
+        }
+    }
 
 </script>
 

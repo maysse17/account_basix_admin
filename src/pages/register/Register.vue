@@ -155,8 +155,7 @@
                 email: '',
                 password1: '',
                 password2: '',
-                errors: {},
-                allErrors: []
+                errors: {}
             }
         },
         methods: {
@@ -174,9 +173,14 @@
                 const { username, password } = data
                 HTTP.post(url, data).then((response) => {
                     console.log('account created')
-                    this.$store.dispatch('obtainToken', { username, password })
+                    this.$store.dispatch('obtainToken', { username, password }).then((response) => {
+                        self.$router.push({name: 'Home'})
+                    }).catch((error) => {
+                        console.log(error)
+                    })
                 }).catch((error) => {
-                    console.log(error)
+                    console.log(error.response.data)
+                    self.errors = error.response.data
                 });
             }
         },

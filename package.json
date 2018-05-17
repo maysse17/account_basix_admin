@@ -25,6 +25,7 @@
     "html-minifier": "^3.5.5",
     "ionicons-npm": "^2.0.1",
     "is-url-external": "^1.0.3",
+    "jwt-decode": "^2.2.0",
     "leaflet-map": "^0.2.1",
     "less-plugin-clean-css": "^1.5.1",
     "normalize.css": "^7.0.0",

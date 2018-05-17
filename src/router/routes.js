@@ -66,7 +66,7 @@ const isAutenticated = (to, from, next) => {
 export const routes = [
     {
         path : '',
-        name: 'home',
+        name: 'Home',
         component: Dashboard,
         beforeEnter: isAutenticated
     },
@@ -81,5 +81,5 @@ export const routes = [
         component: Login,
         name: 'Login',
         beforeEnter: isNotAutenticated
-    },
+    }
 ];

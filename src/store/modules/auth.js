@@ -1,4 +1,5 @@
 import {HTTP} from "../../main"
+import {isTokenExpired} from "../utils";
 
 export default {
     state: {
@@ -9,7 +10,7 @@ export default {
     getters: {
         token: (state) => state.token,
         authStatus: (state) => state.status,
-        isAuthenticated: (state) => !!state.token,
+        isAuthenticated: (state) => !!state.token && !isTokenExpired(state.token),
     },
     
     mutations: {
@@ -65,6 +66,7 @@ export default {
         },
         
         removeToken: function ({commit}) {
+            console.log('remove token called')
             commit('removeToken')
         }
     }
