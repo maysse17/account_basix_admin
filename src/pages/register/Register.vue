@@ -174,7 +174,7 @@
                 HTTP.post(url, data).then((response) => {
                     console.log('account created')
                     this.$store.dispatch('obtainToken', { username, password }).then((response) => {
-                        self.$router.push({name: 'Home'})
+                        self.$router.push('/')
                     }).catch((error) => {
                         console.log(error)
                     })

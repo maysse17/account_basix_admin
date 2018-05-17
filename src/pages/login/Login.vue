@@ -63,7 +63,7 @@
                 const { username, password } = data
                 this.$store.dispatch('obtainToken', { username, password }).then((response) => {
                     console.log('got to home page')
-                    self.$router.push({name: 'Home'})
+                    self.$router.push('/')
                     console.log('redirect success')
                 }).catch((error) => {
                     console.log(error)

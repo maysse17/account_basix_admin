@@ -45,12 +45,13 @@
                             </a>
                         </router-link>
 
-                        <li>
-                            <a class="" href="#" @click.prevent="logout()">
+                        <li @click.prevent="logout">
+                            <a class="" href="#">
                                 <i class="fa fa-sign-out"></i>
                                 Logout
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -67,7 +68,9 @@
         methods: {
             logout: function (e) {
                 console.log('logout called')
-                this.$store.dispatch('removeToken')
+                this.$store.dispatch('removeToken').then((response) => {
+                    this.$router.push('/auth/login')
+                })
             }
         }
     }
