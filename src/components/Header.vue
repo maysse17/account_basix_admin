@@ -31,27 +31,28 @@
                     </a>
 
                     <ul class="user-menu">
-                        <router-link tag="li" :to="{name: 'Login'}" exact>
-                            <a class="" href="">
-                                <i class="fa fa-sign-in"></i>
-                                Login
-                            </a>
-                        </router-link>
 
-                        <router-link tag="li" :to="{name: 'Register'}" exact>
-                            <a class="" href="">
-                                <i class="fa fa-user-plus"></i>
-                                Sign Up
-                            </a>
-                        </router-link>
-
-                        <li @click.prevent="logout">
+                        <li @click.prevent="logout" v-if="isAuthenticated">
                             <a class="" href="#">
                                 <i class="fa fa-sign-out"></i>
                                 Logout
                             </a>
                         </li>
+                        <template v-else>
+                            <router-link tag="li" :to="{name: 'Login'}" exact>
+                                <a class="" href="">
+                                    <i class="fa fa-sign-in"></i>
+                                    Login
+                                </a>
+                            </router-link>
 
+                            <router-link tag="li" :to="{name: 'Register'}" exact>
+                                <a class="" href="">
+                                    <i class="fa fa-user-plus"></i>
+                                    Sign Up
+                                </a>
+                            </router-link>
+                        </template>
                     </ul>
                 </div>
             </div>
@@ -63,14 +64,21 @@
 
 
 <script>
+    import {HTTP} from "../main";
 
     export default {
         methods: {
             logout: function (e) {
                 console.log('logout called')
                 this.$store.dispatch('removeToken').then((response) => {
+                    delete HTTP.defaults.headers.common['Authorization']
                     this.$router.push('/auth/login')
                 })
+            }
+        },
+        computed: {
+            isAuthenticated: function () {
+                return this.$store.getters.isAuthenticated
             }
         }
     }

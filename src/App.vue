@@ -41,7 +41,6 @@
                 return this.$route.matched
             },
             isAuth () {
-                console.log(this.$route)
                 return this.$route.path.match('auth')
             }
         }

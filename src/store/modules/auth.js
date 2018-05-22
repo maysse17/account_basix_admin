@@ -4,12 +4,10 @@ import {isTokenExpired} from "../utils";
 export default {
     state: {
         token: localStorage.getItem('jwtToken'),
-        status: ''
     },
     
     getters: {
         token: (state) => state.token,
-        authStatus: (state) => state.status,
         isAuthenticated: (state) => !!state.token && !isTokenExpired(state.token),
     },
     
@@ -22,32 +20,21 @@ export default {
         removeToken: function (state) {
             state.token = null
             localStorage.removeItem('jwtToken')
-            state.status = ''
-        },
-        authRequestStart: (state) => {
-            state.status = 'loading'
-        },
-        authRequestSuccess: (state) => {
-            state.status = 'success'
-        },
-        authRequestFailed: (state) => {
-            state.status = 'error'
         },
     },
     
     actions: {
         obtainToken: function ({commit}, payload) {
-            const url = Urls['jwt_obtain_token']()
-            console.log('obtainToken called')
-            commit('authRequestStart')
-            HTTP.post(url, payload).then((response) => {
-                commit('updateToken', response.data.token)
-                commit('authRequestSuccess')
-            }).catch((error) => {
-                console.log('error to get token')
-                console.log(error)
-                commit('removeToken')
-                commit('authRequestFailed')
+            return new Promise((resolve, reject) => {
+                const url = Urls['jwt_obtain_token']()
+                HTTP.post(url, payload).then((response) => {
+                    HTTP.defaults.headers.common['Authorization'] = 'JWT_ACCOUNT ' + response.data.token
+                    commit('updateToken', response.data.token)
+                    resolve(response)
+                }).catch((error) => {
+                    commit('removeToken')
+                    reject(error)
+                })
             })
         },
         
@@ -59,14 +46,12 @@ export default {
             HTTP.post(url, payload).then((response) => {
                 commit('updateToken', response.data.token)
             }).catch((error) => {
-                console.log('error to update token')
-                console.log(error)
+                delete HTTP.defaults.headers.common['Authorization']
                 commit('removeToken')
             })
         },
         
         removeToken: function ({commit}) {
-            console.log('remove token called')
             commit('removeToken')
         }
     }

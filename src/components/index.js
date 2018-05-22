@@ -6,7 +6,6 @@ import Alerts from './Alerts.vue'
 import Buttons from './Buttons.vue'
 import Footer from './Footer.vue'
 import Header from './Header.vue'
-import Header2 from './Header2.vue'
 import Sidebar from './Sidebar.vue'
 import Badges from './Badges.vue'
 import Cards from './Cards.vue'
@@ -15,6 +14,7 @@ import BasicForms from './forms/BasicForms.vue'
 import Grids from './Grids.vue'
 import Widgets from './Widgets.vue'
 import Tables from './tables/Tables.vue'
+import Banks from './tables/Banks.vue'
 import Icons from './icons/Icons.vue'
 import AnimatedNumber from './AnimatedNumber.vue'
 
@@ -40,28 +40,28 @@ Vue.component('basix-counter', AnimatedNumber)
 Vue.component('basix-alert', Alert)
 
 export {
-  Alerts,
-  Buttons,
-  Footer,
-  Header,
-  Header2,
-  Sidebar,
-  SidebarCollapse,
-  Badges,
-  Cards,
-  CardTemplate,
-  BasicForms,
-  Grids,
-  Widgets,
-  Tables,
-  Icons,
-  GoogleMapsPage,
-  LeafletMapsPage,
-  BubbleMapsPage,
-  LineMapsPage,
-  AnimatedNumber,
-  Login,
-  Register,
-  Page404,
-  Page500,
+    Alerts,
+    Buttons,
+    Footer,
+    Header,
+    Sidebar,
+    SidebarCollapse,
+    Badges,
+    Cards,
+    CardTemplate,
+    BasicForms,
+    Grids,
+    Widgets,
+    Tables,
+    Icons,
+    GoogleMapsPage,
+    LeafletMapsPage,
+    BubbleMapsPage,
+    LineMapsPage,
+    AnimatedNumber,
+    Login,
+    Register,
+    Page404,
+    Page500,
+    Banks,
 }

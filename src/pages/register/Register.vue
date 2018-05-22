@@ -172,15 +172,16 @@
                 let self = this
                 const { username, password } = data
                 HTTP.post(url, data).then((response) => {
-                    console.log('account created')
                     this.$store.dispatch('obtainToken', { username, password }).then((response) => {
+                        HTTP.defaults.headers.common['Authorization'] = 'JWT_ACCOUNT ' + token
                         self.$router.push('/')
                     }).catch((error) => {
                         console.log(error)
                     })
                 }).catch((error) => {
-                    console.log(error.response.data)
-                    self.errors = error.response.data
+                    if (error.response != undefined && error.response.data != undefined) {
+                        self.errors = error.response.data
+                    }
                 });
             }
         },

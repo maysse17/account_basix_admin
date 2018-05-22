@@ -39,9 +39,9 @@ axios.defaults.xsrfCookieName = "csrftoken";
 
 export const HTTP = axios.create(axiosConfig);
 
-const token = localStorage.getItem('user-token')
+const token = localStorage.getItem('jwtToken')
 if (token) {
-    axios.defaults.headers.common['Authorization'] = token
+    HTTP.defaults.headers.common['Authorization'] = 'JWT_ACCOUNT ' + token
 }
 
 new Vue({

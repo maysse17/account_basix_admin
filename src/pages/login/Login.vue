@@ -4,6 +4,14 @@
         <card header-text="Welcome !">
             <div class="card-body card-block">
                 <form @submit.prevent="submitLogin">
+                    <basix-alert type="danger" :withCloseBtn="true" class="mt-4" v-if="!isErrorsEmpty">
+                        <template v-for="values, key in errors">
+                            <span class="badge badge-pill badge-danger">{{key}}</span>
+                            <ul v-for="value in values">
+                                <li>{{value}}</li>
+                            </ul>
+                        </template>
+                    </basix-alert>
                     <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
@@ -42,6 +50,8 @@
 </template>
 
 <script>
+    import {HTTP} from "../../main";
+
     export default {
         name: 'Login',
         data () {
@@ -62,14 +72,20 @@
                 let self = this
                 const { username, password } = data
                 this.$store.dispatch('obtainToken', { username, password }).then((response) => {
-                    console.log('got to home page')
                     self.$router.push('/')
-                    console.log('redirect success')
                 }).catch((error) => {
                     console.log(error)
+                    if (error.response != undefined && error.response.data != undefined) {
+                        self.errors = error.response.data
+                    }
                 })
             }
         },
+        computed: {
+           isErrorsEmpty: function () {
+              return Object.keys(this.errors).length === 0
+           }
+        }
     }
 </script>
 
