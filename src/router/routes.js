@@ -20,7 +20,7 @@ const Grids = resolve => { require.ensure(['../components/Grids.vue'], ()=>{ res
 const Widgets = resolve => { require.ensure(['../components/Widgets.vue'], ()=>{ resolve(require('../components/Widgets.vue')); }); };
 const Tables = resolve => { require.ensure(['../components/tables/Tables.vue'], ()=>{ resolve(require('../components/tables/Tables.vue')); }); };
 const Banks = resolve => { require.ensure(['../components/tables/Banks.vue'], ()=>{ resolve(require('../components/tables/Banks.vue')); }); };
-
+// const BanksTable = resolve => { require.ensure(['../components/tables/BanksTable.vue'], ()=>{ resolve(require('../components/tables/Banks.vue')); }); };
 //Charts
 const BarChart = resolve => { require.ensure(['../components/charts/chartlists/BarChart.vue'], ()=>{ resolve(require('../components/charts/chartlists/BarChart.vue')); }); };
 const LineChart = resolve => { require.ensure(['../components/charts/chartlists/LineChart.vue'], ()=>{ resolve(require('../components/charts/chartlists/LineChart.vue')); }); };

@@ -77,11 +77,18 @@
     h3 {
         text-align: center;
     }
-    .form-inline {
-        display: inline-block;
-        position: relative;
+    .pagination {
+        margin-top: 0;
     }
-    .col-md-8 {
-        max-width: 100%;
+    .btn.btn-border {
+        border: 1px solid;
+        margin-right: 2px;
+    }
+    .vuetable-pagination-info {
+        margin-top: 8px !important;
+    }
+    span.sort-icon {
+        float: right;
+        color: #ff9100;
     }
 </style>

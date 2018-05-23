@@ -5,6 +5,8 @@ import VueRouter from 'vue-router';
 import { routes } from './router/routes';
 import { index } from './components/index'
 import axios from 'axios'
+import {ServerTable, ClientTable, Event} from 'vue-tables-2'
+import moment from "moment"
 
 // Table
 import Vuetable from 'vuetable-2'
@@ -27,6 +29,8 @@ const router = new VueRouter({
     mode: 'hash'
 });
 
+Vue.use(ServerTable, {}, false, 'bootstrap4', 'footerPagination')
+
 const axiosConfig = {
     baseUrl: 'http://127.0.0.1:8000/',
     timeout: 3000,
@@ -38,6 +42,9 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 export const HTTP = axios.create(axiosConfig);
+
+window.axios = HTTP
+window.moment = moment
 
 const token = localStorage.getItem('jwtToken')
 if (token) {

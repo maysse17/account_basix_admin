@@ -27,7 +27,7 @@ export default {
                 },
                 {
                     name: 'Add',
-                    url: '/components/badges',
+                    url: '/api/banksTable',
                     icon: 'fa fa-id-badge'
                 }
             ]

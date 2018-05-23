@@ -1,7 +1,7 @@
 <template>
     <div class="form-horizontal">
         <template>
-            <div class="pagination-rpp col-xs-2">
+            <div class="form-group float-right pagination-rpp col-xs-2">
                 <select class="form-control select2" v-on:change="onRowchanged()" id="rowPerPageId" v-model="selectedValue">
                     <option v-for="value in options"> {{value}}</option>
                 </select>

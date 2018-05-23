@@ -1,5 +1,5 @@
 <template>
-  <div class="form-group with-icon-left">
+  <div class="form-group float-left with-icon-left">
     <div class="input-group">
 
       <form class="form-inline">

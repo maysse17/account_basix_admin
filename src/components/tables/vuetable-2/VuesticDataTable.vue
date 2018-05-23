@@ -1,12 +1,15 @@
 <template>
     <div class="table-responsive">
-        <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-center">
+        <div class="row">
+        <div class="col-md-12">
             <filter-bar @filter="onFilterSet"></filter-bar>
             <rows-per-page
                     @items-per-page="onItemsPerPage"
             >
             </rows-per-page>
         </div>
+        </div>
+        <div class="table-responsive">
         <vuetable ref="vuetable"
                   :apiUrl="apiUrl"
                   :apiMode="apiMode"
@@ -23,6 +26,7 @@
                   @vuetable:pagination-data="onPaginationData"
         >
         </vuetable>
+        </div>
         <div class="d-flex justify-content-center pagination mb-4">
             <vuetable-pagination ref="pagination"
                                  :css="css.pagination"
@@ -193,4 +197,11 @@
             display: none;
         }
     }
+    .form-inline input[type="text"] {
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-radius: 0.25rem;
+        color: #495057;
+        font-size: 1rem;;
+    }
+
 </style>
